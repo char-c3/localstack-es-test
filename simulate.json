@@ -1,0 +1,23 @@
+{
+  "pipeline": {
+    "processors": [{
+      "grok": {
+        "field": "message",
+        "patterns": [ "%{NOTSPACE:type} %{TIMESTAMP_ISO8601:timestamp} %{NOTSPACE:elb} %{IP:clientip}:%{INT:clientport:int} (?:(%{IP:targetip}:?:%{INT:targetport:int})|-) %{NUMBER:request_processing_time:float} %{NUMBER:target_processing_time:float} %{NUMBER:response_processing_time:float} %{INT:elb_status_code:int} %{INT:target_status_code:int} %{INT:received_bytes:int} %{INT:sent_bytes:int} \"(?:%{WORD:verb} %{URIPROTO:proto}://?(?:%{URIHOST:urihost})?(?:%{URIPATH:path}(?:%{URIPARAM:params})?)?(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})\" \"%{DATA:agent}\"" ],
+        "ignore_missing": true
+      }
+    },
+    {
+      "remove": {
+        "field": "message"
+      }
+    }]
+  },
+  "docs": [
+    {
+      "_source": {
+        "message": "https 2018-07-02T22:23:00.186641Z app/my-loadbalancer/50dc6c495c0c9188 192.168.131.39:2817 10.0.0.1:80 0.086 0.048 0.037 200 200 0 57 \"GET https://www.example.com:443/ HTTP/1.1\" \"curl/7.46.0\" ECDHE-RSA-AES128-GCM-SHA256 TLSv1.2 arn:aws:elasticloadbalancing:us-east-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067 \"Root=1-58337281-1d84f3d73c47ec4e58577259\" \"www.example.com\" \"arn:aws:acm:us-east-2:123456789012:certificate/12345678-1234-1234-1234-123456789012\" 1 2018-07-02T22:22:48.364000Z \"authenticate,forward\" \"-\" \"-\""
+      }
+    }
+  ]
+}

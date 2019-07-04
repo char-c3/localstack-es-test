@@ -1,0 +1,26 @@
+{
+  "template": "alg-log-*",
+  "mappings": {
+    "dummy-alb": {
+      "properties": {
+        "timestamp": { "type": "date" },
+        "elb": { "type": "text" },
+        "client_ip": { "type": "ip" },
+        "client_port": { "type": "text" },
+        "backend_ip": { "type": "ip" },
+        "backend_port": { "type": "integer" },
+        "request_processing_time": { "type": "float" },
+        "backend_processing_time": { "type": "float" },
+        "response_processing_time": { "type": "float" },
+        "elb_status_code": { "type": "integer" },
+        "backend_status_code": { "type": "integer" },
+        "received_bytes": { "type": "long" },
+        "sent_bytes": { "type": "long" },
+        "request_method": { "type": "text" },
+        "request_url": { "type": "text" },
+        "request_version": { "type": "text" },
+        "user_agent": { "type": "text" }
+      }
+    }
+  }
+}

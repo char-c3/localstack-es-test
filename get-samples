@@ -1,0 +1,5 @@
+#! /bin/bash -xe
+# from https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html
+curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/shakespeare.json
+curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/accounts.zip
+curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/logs.jsonl.gz

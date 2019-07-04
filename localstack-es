@@ -1,2 +1,2 @@
-#! /usr/bin/env bash -xe
+#! /bin/bash -xe
 aws --endpoint http://localhost:4578 --profile localstack --region us-east-1 es $@

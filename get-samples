@@ -1,5 +1,9 @@
 #! /bin/bash -xe
 # from https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html
-curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/shakespeare.json
-curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/accounts.zip
-curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/logs.jsonl.gz
+if [ -d sample-data ]; then
+  rm -rf sample-data
+fi
+mkdir -p sample-data
+curl https://download.elastic.co/demos/kibana/gettingstarted/7.x/shakespeare.json > sample-data/shakespeare.json
+curl https://download.elastic.co/demos/kibana/gettingstarted/7.x/accounts.zip > sample-data/accounts.zip && unzip sample-data/accounts.zip && mv accounts.json sample-data/ && rm sample-data/accounts.zip
+curl https://download.elastic.co/demos/kibana/gettingstarted/7.x/logs.jsonl.gz > sample-data/logs.jsonl.gz && gunzip sample-data/logs.jsonl.gz

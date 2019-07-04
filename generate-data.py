@@ -3,7 +3,7 @@
 from datetime import datetime, timedelta
 
 def print_ndjson(date, logstr):
-    print('{"index":{"_index":"alg-log-' + date.strftime("%Y%m%d") + '","_type":"log"}}')
+    print('{"index":{"_index":"alg-log-' + date.strftime("%Y%m%d") + '","_type":"dummy-alb"}}')
     print('{"message":"' + logstr + '"}')
 
 now = datetime.now()

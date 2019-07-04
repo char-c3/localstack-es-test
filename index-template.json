@@ -16,10 +16,10 @@
         "backend_status_code": { "type": "integer" },
         "received_bytes": { "type": "long" },
         "sent_bytes": { "type": "long" },
-        "request_method": { "type": "text" },
-        "request_url": { "type": "text" },
-        "request_version": { "type": "text" },
-        "user_agent": { "type": "text" }
+        "request_method": { "type": "string" },
+        "request_url": { "type": "string" },
+        "request_version": { "type": "string" },
+        "user_agent": { "type": "string" }
       }
     }
   }
